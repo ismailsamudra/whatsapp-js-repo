@@ -139,12 +139,12 @@ client.on('change_battery', (batteryInfo) => {
 });
 
 client.on('disconnected', (reason) => {
-  status = "NOT READY"
-  client.destroy();
-  client.initialize();
-  if (fs.existsSync(SESSION_FILE_PATH)) {
-    fs.unlinkSync(SESSION_FILE_PATH);
-  }
+    status = "NOT READY"
+//   client.destroy();
+//   client.initialize();
+//   if (fs.existsSync(SESSION_FILE_PATH)) {
+//     fs.unlinkSync(SESSION_FILE_PATH);
+//   }
   console.log('Client was logged out', reason);
 });
 
