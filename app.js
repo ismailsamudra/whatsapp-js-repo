@@ -469,5 +469,5 @@ server.listen(port, function() {
 setInterval(function() {
   axios
   .get(cek_server, {});
-  console.error('Server is ok !');
+ // console.error('Server is ok !');
 },1000);
