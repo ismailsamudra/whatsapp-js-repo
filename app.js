@@ -466,8 +466,8 @@ server.listen(port, function() {
   console.log('App running on *: ' + port);
 });
 /*Interval*/
-setInterval(function() {
-  axios
-  .get(cek_server, {});
- // console.error('Server is ok !');
-},1000);
+// setInterval(function() {
+//   axios
+//   .get(cek_server, {});
+//  // console.error('Server is ok !');
+// },1000);
