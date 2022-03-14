@@ -1,4 +1,4 @@
-const { Client, MessageMedia } = require('whatsapp-web.js');
+const { Client, LegacySessionAuth, MessageMedia } = require('whatsapp-web.js');
 const express = require('express');
 const cors = require('cors')
 const { body, validationResult } = require('express-validator');
@@ -25,7 +25,7 @@ if (fs.existsSync(BASE_URL)) {
   let api_key = base.token;
 
   let reply_server = base.url+"whatsapp/reply";
-  let cek_server = base.url+"whatsapp/cek_server"; 
+//   let cek_server = base.url+"whatsapp/cek_server"; 
 
   // let reply_server = "https://google.com/";
   // let cek_server = "https://google.com/"; 
@@ -80,21 +80,23 @@ app.get("/get_url_083136245050", (req, res) => {
 //   });
 
 const client = new Client({
-  restartOnAuthFail: true,
-  puppeteer: {
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-accelerated-2d-canvas',
-      '--no-first-run',
-      '--no-zygote',
-      '--single-process', // <- this one doesn't works in Windows
-      '--disable-gpu'
-    ],
-  },
-  session: sessionCfg
+//   restartOnAuthFail: true,
+//   puppeteer: {
+//     headless: true,
+//     args: [
+//       '--no-sandbox',
+//       '--disable-setuid-sandbox',
+//       '--disable-dev-shm-usage',
+//       '--disable-accelerated-2d-canvas',
+//       '--no-first-run',
+//       '--no-zygote',
+//       '--single-process', // <- this one doesn't works in Windows
+//       '--disable-gpu'
+//     ],
+//   },
+      authStrategy: new LegacySessionAuth({
+        session: sessionCfg
+    })
 });
 
 let status = "NOT READY";
